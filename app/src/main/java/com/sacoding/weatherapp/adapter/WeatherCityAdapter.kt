@@ -35,7 +35,7 @@ class WeatherCityAdapter:RecyclerView.Adapter<WeatherCityAdapter.WeatherCityView
     override fun onBindViewHolder(holder: WeatherCityViewHolder, position: Int) {
         val curItem = differ.currentList[position]
         holder.binding.apply {
-            temperature.text = "${curItem.temp - 273.1} C"
+            temperature.text = "${curItem.temp } K"
             humidity.text = "Humidity : ${curItem.humidity} %"
             windSpeed.text  = "Wind Speed : ${curItem.speed} km/h"
             weatherType.text = "Weather Type : ${curItem.weatherType}"

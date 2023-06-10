@@ -68,12 +68,12 @@ class MainActivity : AppCompatActivity() {
                 is Resource.Success -> {
                     binding.progressBar.visibility= View.GONE
                      it.data?.let {
-                         binding.temperature.text = "${it.main.temp - 273.1} C"
+                         binding.temperature.text = "${it.main.temp } K"
                          binding.windSpeed.text = "Wind speed : ${it.wind.speed} km/h"
                          binding.humidity.text = "Humidity : ${it.main.humidity}%"
                          binding.cityName.text = it.sys.country
-                         binding.maxTemp.text= "Max Temp : ${it.main.temp_max - 273.1} C"
-                         binding.minTemp.text = "Min Temp : ${it.main.temp_min - 273.1} C"
+                         binding.maxTemp.text= "Max Temp : ${it.main.temp_max } K"
+                         binding.minTemp.text = "Min Temp : ${it.main.temp_min } K"
                          binding.sunrise.text = "Sunrise : ${timestampToDateAndTime(it.sys.sunrise.toLong())} "
                          binding.sunset.text = "Sunset : ${timestampToDateAndTime(it.sys.sunset.toLong())}"
                          binding.weatherType.text = "Weather type: ${it.weather[0].description}"
