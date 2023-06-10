@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.sacoding.weatherapp.databinding.ItemWeathercityBinding
+
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -34,16 +35,15 @@ class WeatherCityAdapter:RecyclerView.Adapter<WeatherCityAdapter.WeatherCityView
     override fun onBindViewHolder(holder: WeatherCityViewHolder, position: Int) {
         val curItem = differ.currentList[position]
         holder.binding.apply {
-            temperature.text = "Temperature: ${curItem.temp}K"
+            temperature.text = "${curItem.temp - 273.1} C"
             humidity.text = "Humidity : ${curItem.humidity} %"
             windSpeed.text  = "Wind Speed : ${curItem.speed} km/h"
             weatherType.text = "Weather Type : ${curItem.weatherType}"
-            maxTemp.text = "Max Temperature : ${curItem.temp_max} K"
-            minTemp.text = "Min temperature : ${curItem.temp_min} K"
             date.text = "Date : ${timestampToDateAndTime(curItem.dt.toLong())}"
             sunrise.text = "Sunrise : ${timestampToDateAndTime(curItem.sunrise.toLong())}"
             sunset.text = "Sunset : ${timestampToDateAndTime(curItem.sunset.toLong())}"
-            cityName.text = curItem.cityName
+            cityName.text = curItem.cityName.capitalize()
+
         }
 
     }
@@ -56,7 +56,7 @@ class WeatherCityAdapter:RecyclerView.Adapter<WeatherCityAdapter.WeatherCityView
 
         val date = Date(ms*1000L)
 
-        val sdf = SimpleDateFormat("yyyy-MM-dd | HH:mm", Locale.getDefault())
+        val sdf = SimpleDateFormat("yyyy-MM-dd | HH:mm a", Locale.getDefault())
 
         return sdf.format(date)
     }

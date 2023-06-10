@@ -1,7 +1,6 @@
 package com.sacoding.weatherapp.location
 
 import android.Manifest
-import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
 import android.content.pm.PackageManager
@@ -9,13 +8,11 @@ import android.location.Location
 import android.location.LocationManager
 import androidx.core.content.ContextCompat
 import com.google.android.gms.location.*
-import com.sacoding.weatherapp.util.TrackingUtility
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.internal.resumeCancellableWith
 import kotlinx.coroutines.suspendCancellableCoroutine
 import javax.inject.Inject
 import kotlin.coroutines.resume
-import kotlin.coroutines.suspendCoroutine
+
 @ExperimentalCoroutinesApi
 class LocationTracker @Inject constructor(
     private val application: Application,

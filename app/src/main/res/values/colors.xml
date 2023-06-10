@@ -2,4 +2,16 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="color_clear_sky">#87CEEB</color>
+    <color name="color_few_clouds">#B0C4DE</color>
+    <color name="color_scattered_clouds">#D3D3D3</color>
+    <color name="color_broken_clouds">#808080</color>
+    <color name="color_shower_rain">#4682B4</color>
+    <color name="color_rain">#1E90FF</color>
+    <color name="color_thunderstorm">#8B0000</color>
+    <color name="color_snow">#FFFFFF</color>
+    <color name="color_mist_fog">#D8D8D8</color>
+    <color name="color_smoke">#C0C0C0</color>
+    <color name="color_haze">#F5F5F5</color>
 </resources>

@@ -16,6 +16,7 @@ import com.sacoding.weatherapp.adapter.WeatherCityAdapter
 import com.sacoding.weatherapp.databinding.ActivityMainBinding
 import com.sacoding.weatherapp.ui.viewModel.MainViewModel
 import com.sacoding.weatherapp.util.Resource
+
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -67,22 +68,22 @@ class MainActivity : AppCompatActivity() {
                 is Resource.Success -> {
                     binding.progressBar.visibility= View.GONE
                      it.data?.let {
-                         binding.temperature.text = "${it.main.temp} K"
+                         binding.temperature.text = "${it.main.temp - 273.1} C"
                          binding.windSpeed.text = "Wind speed : ${it.wind.speed} km/h"
                          binding.humidity.text = "Humidity : ${it.main.humidity}%"
                          binding.cityName.text = it.sys.country
-                         binding.maxTemp.text= "Max Temp : ${it.main.temp_max} K"
-                         binding.minTemp.text = "Min Temp : ${it.main.temp_min} K"
+                         binding.maxTemp.text= "Max Temp : ${it.main.temp_max - 273.1} C"
+                         binding.minTemp.text = "Min Temp : ${it.main.temp_min - 273.1} C"
                          binding.sunrise.text = "Sunrise : ${timestampToDateAndTime(it.sys.sunrise.toLong())} "
                          binding.sunset.text = "Sunset : ${timestampToDateAndTime(it.sys.sunset.toLong())}"
                          binding.weatherType.text = "Weather type: ${it.weather[0].description}"
                          binding.date.text = timestampToDateAndTime(it.dt.toLong())
-
-
                      }
                     writeDataToSharedPref()
 
                 }
+
+                else -> {}
             }
         })
 
@@ -97,7 +98,6 @@ class MainActivity : AppCompatActivity() {
                 }
                 is Resource.Success -> {
                       weatherAdapter.differ.submitList(it.data)
-
                 }
             }
         })
@@ -107,7 +107,7 @@ class MainActivity : AppCompatActivity() {
 
         val date = Date(ms*1000L)
 
-        val sdf = SimpleDateFormat("yyyy-MM-dd | HH:mm", Locale.getDefault())
+        val sdf = SimpleDateFormat("yyyy-MM-dd | HH:mm a", Locale.getDefault())
 
         return sdf.format(date)
     }

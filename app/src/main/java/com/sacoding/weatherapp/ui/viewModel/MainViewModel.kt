@@ -55,7 +55,7 @@ class MainViewModel @Inject constructor(
                             is Resource.Success -> {
                                it.data?.let {
                                    val weather = WeatherCity(cityName = city,it.main.humidity,it.main.pressure,
-                                   it.main.temp,it.main.temp_max,it.main.temp_min,it.sys.sunrise,
+                                   it.main.temp,it.sys.sunrise,
                                    it.sys.sunset,it.sys.country,it.wind.speed,it.dt,it.weather[0].description)
                                    weatherList.add(weather)
                                }

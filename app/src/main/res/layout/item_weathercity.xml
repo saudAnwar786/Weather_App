@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="3dp"
-    android:background="@color/cardview_light_background"
+    android:padding="16dp"
+    android:background="#1E90FF"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -10,8 +10,7 @@
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="12dp"
-        app:cardCornerRadius="8dp"
+        app:cardCornerRadius="12dp"
         app:cardElevation="5dp"
         app:cardPreventCornerOverlap="false"
         app:cardUseCompatPadding="true"
@@ -21,9 +20,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
+            android:id="@+id/cityWeatherLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:background="@drawable/city_weather_gradient"
             android:padding="16dp">
 
             <TextView
@@ -74,21 +75,7 @@
                 android:text="Wind Speed"
                 android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/max_temp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="Max temp"
-                android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/min_temp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="Min temp"
-                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/weather_type"

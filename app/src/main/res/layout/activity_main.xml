@@ -4,8 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="4dp"
-    android:background="@color/cardview_light_background"
+    android:paddingLeft="4dp"
+    android:paddingEnd="4dp"
+    android:paddingBottom="4dp"
+    android:paddingTop="16dp"
+    android:background="#1E90FF"
     tools:context=".ui.MainActivity">
 
     <androidx.cardview.widget.CardView
@@ -16,7 +19,6 @@
         app:cardCornerRadius="8dp"
         app:cardElevation="4dp"
         app:cardPreventCornerOverlap="false"
-
         app:cardUseCompatPadding="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,6 +27,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/weather_gradient"
             android:orientation="vertical"
             android:padding="16dp">
 
@@ -48,6 +51,7 @@
                 android:textStyle="bold" />
 
             <LinearLayout
+                android:id="@+id/myWeatherLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -140,6 +144,7 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        tools:listitem="@layout/item_weathercity"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
